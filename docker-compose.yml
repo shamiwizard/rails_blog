@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - gem_cache:/gems
+    ports:
+      - "3000:3000"
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: rails_blog_development
+
+  redis:
+    image: redis
+
+volumes:
+  gem_cache:
