@@ -8,6 +8,9 @@ services:
       - gem_cache:/gems
     ports:
       - "3000:3000"
+    depends_on:
+      - database
+      - redis
 
   database:
     image: postgres
@@ -15,9 +18,11 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
       POSTGRES_DB: rails_blog_development
-
+    volumes:
+      - database_cache:/var/lib/postgresql/data
   redis:
     image: redis
 
 volumes:
   gem_cache:
+  database_cache:
