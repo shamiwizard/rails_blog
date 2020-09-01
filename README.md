@@ -6,4 +6,4 @@ For starting the project:
 2. docker-compose up (Up project and all dependencies)
 
 
-For install/update gems use `docker-compsoe bundle install/update`
+For install/update gems use `docker-compose bundle install/update`
