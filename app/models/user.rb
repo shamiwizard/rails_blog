@@ -4,7 +4,6 @@ class User < ApplicationRecord
 
   validates :last_name, presence: true, length: { maximum: 250 }
   validates :first_name, presence: true, length: { maximum: 250 }
-  validates :username, presence: true, length: { maximum: 250 }
+  validates :username, presence: true, length: { in: 3..250 }
   validates :password, confirmation: true, length: { in: 6..30 }
-
 end
